@@ -17,6 +17,120 @@
 }
 
 /* ============================================
+   Global Atmosphere & Typography
+   ============================================ */
+body {
+    background: radial-gradient(circle at top left, rgba(102, 126, 234, 0.15), transparent 55%),
+                radial-gradient(circle at 15% 80%, rgba(118, 75, 162, 0.12), transparent 60%),
+                #f4f6fb;
+    font-weight: 400;
+    color: var(--ql-secondary);
+}
+
+.md-typeset h1,
+.md-typeset h2 {
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+}
+
+.md-typeset h2::after {
+    content: "";
+    position: absolute;
+    bottom: -0.35em;
+    left: 0;
+    width: 65%;
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--ql-primary), var(--ql-accent));
+    opacity: 0.35;
+}
+
+.md-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================
+   Hero Banner
+   ============================================ */
+.hero-banner {
+    text-align: center;
+    padding: 3.5rem 2rem;
+    margin: 0 0 3rem;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.88));
+    color: #fff;
+    box-shadow: 0 25px 60px -28px rgba(40, 55, 120, 0.55);
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.18), transparent 45%),
+                radial-gradient(circle at 80% 25%, rgba(255, 255, 255, 0.12), transparent 40%);
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+
+.hero-banner h2 {
+    margin: 0;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    letter-spacing: 0.02em;
+}
+
+.hero-banner p {
+    margin: 1rem auto 2rem;
+    max-width: 540px;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85em 2.6em;
+    border-radius: 999px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.hero-button--primary {
+    background: linear-gradient(135deg, #ffffff 0%, #e9ecff 100%);
+    color: var(--ql-primary);
+    box-shadow: 0 18px 35px -20px rgba(13, 71, 161, 0.65);
+}
+
+.hero-button--primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 28px 45px -18px rgba(13, 71, 161, 0.6);
+}
+
+.hero-button--ghost {
+    border: 2px solid rgba(255, 255, 255, 0.65);
+    color: #fff;
+    background: transparent;
+}
+
+.hero-button--ghost:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-3px);
+}
+
+/* ============================================
    Enhanced Code Blocks
    ============================================ */
 .highlight {
@@ -196,6 +310,229 @@ table tbody tr:nth-child(even) {
 .admonition-title {
     font-weight: 700;
     margin-bottom: 0.5em;
+}
+
+/* ============================================
+   Stats Overview
+   ============================================ */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.2rem;
+    margin: 0 0 3rem;
+}
+
+.stat-box {
+    position: relative;
+    padding: 1.75rem 1.5rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 18px 38px -24px rgba(6, 69, 173, 0.55);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    backdrop-filter: blur(6px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.stat-box::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(66, 133, 244, 0.18), rgba(118, 75, 162, 0.15));
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.stat-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 45px -24px rgba(6, 69, 173, 0.6);
+}
+
+.stat-box:hover::after {
+    opacity: 1;
+}
+
+.stat-value {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--ql-primary);
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgba(32, 33, 34, 0.68);
+}
+
+/* ============================================
+   Quick Links as Feature Tiles
+   ============================================ */
+.quick-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+.quick-link {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.4rem;
+    padding: 1.2rem 1.4rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(6, 69, 173, 0.12);
+    box-shadow: 0 18px 32px -26px rgba(6, 69, 173, 0.6);
+    text-decoration: none;
+    color: var(--ql-primary);
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.quick-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(66, 133, 244, 0.16), rgba(15, 157, 88, 0.12));
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.quick-link:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 26px 40px -24px rgba(6, 69, 173, 0.55);
+}
+
+.quick-link:hover::after {
+    opacity: 1;
+}
+
+.quick-link > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================
+   Pricing Panels
+   ============================================ */
+.pricing-panels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+}
+
+.pricing-panel {
+    padding: 1.75rem 1.5rem;
+    border-radius: 18px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 22px 40px -28px rgba(18, 32, 74, 0.7);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pricing-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.25;
+    background: radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.85), transparent 55%);
+    mix-blend-mode: screen;
+}
+
+.pricing-panel:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 28px 50px -24px rgba(18, 32, 74, 0.7);
+}
+
+.pricing-panel h4 {
+    margin: 0 0 1rem;
+    font-size: 1.15rem;
+    position: relative;
+    z-index: 1;
+}
+
+.pricing-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.pricing-panel li {
+    padding: 0.35rem 0;
+    font-weight: 500;
+}
+
+.pricing-panel--analytical {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.pricing-panel--tree {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.pricing-panel--monte-carlo {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.pricing-panel--pde {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    color: #38274b;
+}
+
+.pricing-panel--pde h4,
+.pricing-panel--pde li {
+    color: inherit;
+}
+
+/* ============================================
+   Footer Callout
+   ============================================ */
+.footer-cta {
+    text-align: center;
+    padding: 2.4rem 1.5rem;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 16px;
+    margin-top: 3.5rem;
+    box-shadow: 0 18px 42px -26px rgba(32, 33, 34, 0.45);
+    border: 1px solid rgba(6, 69, 173, 0.08);
+}
+
+.footer-cta p {
+    font-size: 1.05rem;
+    color: rgba(32, 33, 34, 0.78);
+    margin: 0.4rem 0;
+}
+
+.footer-cta strong {
+    color: var(--ql-primary);
+}
+
+/* ============================================
+   Responsive Tweaks
+   ============================================ */
+@media (max-width: 640px) {
+    .hero-banner {
+        padding: 3rem 1.5rem;
+    }
+
+    .hero-actions {
+        gap: 0.75rem;
+    }
+
+    .hero-button {
+        width: 100%;
+    }
 }
 
 /* ============================================
