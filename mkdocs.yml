@@ -1,0 +1,143 @@
+site_name: QuantLib Financial Instruments Documentation
+site_description: Professional documentation for QuantLib-based financial instruments pricing and valuation
+site_author: David Forero
+site_url: http://localhost:8000
+
+theme:
+  name: material
+  language: en
+
+  # Google/Wikipedia inspired clean theme
+  palette:
+    - scheme: default
+      primary: white
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: grey
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  # Clean, Wikipedia-style font
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+  features:
+    - navigation.instant        # Fast page loading (SPA-like)
+    - navigation.tracking       # URL updates with scroll
+    - navigation.tabs           # Top-level tabs (like Wikipedia)
+    - navigation.tabs.sticky    # Tabs stay visible
+    - navigation.sections       # Expandable sections
+    - navigation.expand         # Auto-expand sections
+    - navigation.indexes        # Section index pages
+    - navigation.top            # Back to top button
+    - toc.follow                # TOC follows scroll
+    - toc.integrate             # TOC in left sidebar (Wikipedia style)
+    - search.suggest            # Search suggestions
+    - search.highlight          # Highlight search terms
+    - search.share              # Share search results
+    - content.code.copy         # Copy code button
+    - content.code.annotate     # Code annotations
+    - content.tabs.link         # Linked content tabs
+    - header.autohide           # Auto-hide header on scroll
+
+  icon:
+    repo: fontawesome/brands/github
+    logo: material/library
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Installation: guides/installation.md
+      - Quick Start: guides/quickstart.md
+  - Instruments:
+      - Overview: instruments/index.md
+      - Equity:
+          - Equity Swap: instruments/equity/equity_swap.md
+          - Equity Index Swap: instruments/equity/equity_index_swap.md
+          - American Warrant: instruments/equity/american_warrant.md
+          - American Option: instruments/equity/american_option.md
+          - European Option: instruments/equity/european_option.md
+          - Index Futures: instruments/equity/index_futures.md
+      - Fixed Income:
+          - Treasury Bond: instruments/fixed_income/treasury_bond.md
+          - Callable Bond: instruments/fixed_income/callable_bond.md
+          - Floating Rate Note: instruments/fixed_income/frn.md
+      - Credit:
+          - Credit Default Swap: instruments/credit/cds.md
+          - CDS Index: instruments/credit/cds_index.md
+          - CDX/iTraxx Options: instruments/credit/cdx_options.md
+      - Interest Rates:
+          - Interest Rate Swap: instruments/rates/irs.md
+      - FX:
+          - Currency Forward: instruments/fx/currency_forward.md
+      - Cash Flow:
+          - Overview: instruments/cashflow/overview.md
+  - Examples:
+      - Basic Pricing: examples/basic_pricing.ipynb
+      - Advanced Valuation: examples/advanced_valuation.ipynb
+  - API Reference: api/index.md
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            show_source: true
+            docstring_style: google
+  - mkdocs-jupyter:
+      include_source: true
+      execute: false
+  - mermaid2
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10.0.2/dist/mermaid.min.js
+  - assets/javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+copyright: Copyright &copy; 2025 David Forero

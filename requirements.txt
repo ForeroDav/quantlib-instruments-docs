@@ -1,0 +1,21 @@
+# Documentation
+mkdocs==1.6.1
+mkdocs-material==9.5.44
+mkdocs-mermaid2-plugin==1.1.1
+mkdocs-jupyter==0.25.1
+pymdown-extensions==10.12
+mkdocstrings==0.27.0
+mkdocstrings-python==1.12.2
+
+# Jupyter
+jupyter==1.1.1
+notebook==7.3.1
+ipykernel==6.29.5
+
+# QuantLib
+QuantLib-Python==1.18
+
+# Data & Analysis
+numpy==1.26.4
+pandas==2.2.3
+matplotlib==3.9.3
