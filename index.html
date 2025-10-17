@@ -234,6 +234,17 @@
       Equity Instruments (8)
     </span>
 </a>
+<nav aria-label="Equity Instruments (8)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#equity-options-derivatives">
+<span class="md-ellipsis">
+      EQUITY Options &amp; Derivatives
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#fixed-income-instruments-3">
@@ -241,6 +252,17 @@
       Fixed Income Instruments (3)
     </span>
 </a>
+<nav aria-label="Fixed Income Instruments (3)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fixed-income-bonds-notes">
+<span class="md-ellipsis">
+      FIXED INCOME Bonds &amp; Notes
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#credit-derivatives-3">
@@ -248,6 +270,17 @@
       Credit Derivatives (3)
     </span>
 </a>
+<nav aria-label="Credit Derivatives (3)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#credit-credit-protection">
+<span class="md-ellipsis">
+      CREDIT Credit Protection
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -816,44 +849,135 @@
 <h2 id="complete-instrument-catalog">📚 Complete Instrument Catalog<a class="headerlink" href="#complete-instrument-catalog" title="Permanent link">¶</a></h2>
 <h3 id="equity-instruments-8">Equity Instruments (8)<a class="headerlink" href="#equity-instruments-8" title="Permanent link">¶</a></h3>
 <div class="instrument-card">
-
-#### <span class="category-badge badge-equity">EQUITY</span> Options &amp; Derivatives
-
-| Instrument | Type | Pricing Methods | Documentation |
-|------------|------|-----------------|---------------|
-| **EquityAmericanOption** | Vanilla Option | Binomial Tree, FD, LSM | [View →](instruments/equity/american_option.md) |
-| **EquityEuropeanOption** | Vanilla Option | Black-Scholes, Monte Carlo | [View →](instruments/equity/european_option.md) |
-| **EquityAmericanWarrant** | Warrant | Binomial Tree, Dilution Model | [View →](instruments/equity/american_warrant.md) |
-| **EquitySwap** | Total Return Swap | Monte Carlo, PDE | [View →](instruments/equity/equity_swap.md) |
-| **EquityIndexSwap** | Index Swap | Index Replication | [View →](instruments/equity/equity_index_swap.md) |
-| **EquityPreferredSwap** | Preferred Equity | DDM, Cash Flow | [View →](instruments/equity/equity_swap.md) |
-| **EquityIndexFutures** | Futures | Cost of Carry | [View →](instruments/equity/index_futures.md) |
-| **EquityFutureSwap** | Futures Swap | Forward Pricing | [View →](instruments/equity/equity_swap.md) |
-
+<h4 id="equity-options-derivatives"><span class="category-badge badge-equity">EQUITY</span> Options &amp; Derivatives<a class="headerlink" href="#equity-options-derivatives" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Type</th>
+<th>Pricing Methods</th>
+<th>Documentation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>EquityAmericanOption</strong></td>
+<td>Vanilla Option</td>
+<td>Binomial Tree, FD, LSM</td>
+<td><a href="instruments/equity/american_option/">View →</a></td>
+</tr>
+<tr>
+<td><strong>EquityEuropeanOption</strong></td>
+<td>Vanilla Option</td>
+<td>Black-Scholes, Monte Carlo</td>
+<td><a href="instruments/equity/european_option/">View →</a></td>
+</tr>
+<tr>
+<td><strong>EquityAmericanWarrant</strong></td>
+<td>Warrant</td>
+<td>Binomial Tree, Dilution Model</td>
+<td><a href="instruments/equity/american_warrant/">View →</a></td>
+</tr>
+<tr>
+<td><strong>EquitySwap</strong></td>
+<td>Total Return Swap</td>
+<td>Monte Carlo, PDE</td>
+<td><a href="instruments/equity/equity_swap/">View →</a></td>
+</tr>
+<tr>
+<td><strong>EquityIndexSwap</strong></td>
+<td>Index Swap</td>
+<td>Index Replication</td>
+<td><a href="instruments/equity/equity_index_swap/">View →</a></td>
+</tr>
+<tr>
+<td><strong>EquityPreferredSwap</strong></td>
+<td>Preferred Equity</td>
+<td>DDM, Cash Flow</td>
+<td><a href="instruments/equity/equity_swap/">View →</a></td>
+</tr>
+<tr>
+<td><strong>EquityIndexFutures</strong></td>
+<td>Futures</td>
+<td>Cost of Carry</td>
+<td><a href="instruments/equity/index_futures/">View →</a></td>
+</tr>
+<tr>
+<td><strong>EquityFutureSwap</strong></td>
+<td>Futures Swap</td>
+<td>Forward Pricing</td>
+<td><a href="instruments/equity/equity_swap/">View →</a></td>
+</tr>
+</tbody>
+</table>
 </div>
 <h3 id="fixed-income-instruments-3">Fixed Income Instruments (3)<a class="headerlink" href="#fixed-income-instruments-3" title="Permanent link">¶</a></h3>
 <div class="instrument-card">
-
-#### <span class="category-badge badge-fixed-income">FIXED INCOME</span> Bonds &amp; Notes
-
-| Instrument | Type | Pricing Methods | Documentation |
-|------------|------|-----------------|---------------|
-| **TreasuryBond** | Government Bond | Yield Curve Bootstrap | [View →](instruments/fixed_income/treasury_bond.md) |
-| **CallableBond** | Callable Bond | Hull-White, BDT | [View →](instruments/fixed_income/callable_bond.md) |
-| **FloatingRateNote** | Floating Note | Discounted Cash Flow | [View →](instruments/fixed_income/frn.md) |
-
+<h4 id="fixed-income-bonds-notes"><span class="category-badge badge-fixed-income">FIXED INCOME</span> Bonds &amp; Notes<a class="headerlink" href="#fixed-income-bonds-notes" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Type</th>
+<th>Pricing Methods</th>
+<th>Documentation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TreasuryBond</strong></td>
+<td>Government Bond</td>
+<td>Yield Curve Bootstrap</td>
+<td><a href="instruments/fixed_income/treasury_bond/">View →</a></td>
+</tr>
+<tr>
+<td><strong>CallableBond</strong></td>
+<td>Callable Bond</td>
+<td>Hull-White, BDT</td>
+<td><a href="instruments/fixed_income/callable_bond/">View →</a></td>
+</tr>
+<tr>
+<td><strong>FloatingRateNote</strong></td>
+<td>Floating Note</td>
+<td>Discounted Cash Flow</td>
+<td><a href="instruments/fixed_income/frn/">View →</a></td>
+</tr>
+</tbody>
+</table>
 </div>
 <h3 id="credit-derivatives-3">Credit Derivatives (3)<a class="headerlink" href="#credit-derivatives-3" title="Permanent link">¶</a></h3>
 <div class="instrument-card">
-
-#### <span class="category-badge badge-credit">CREDIT</span> Credit Protection
-
-| Instrument | Type | Pricing Methods | Documentation |
-|------------|------|-----------------|---------------|
-| **CreditDefaultSwap** | Single-Name CDS | ISDA Standard, Hazard Rate | [View →](instruments/credit/cds.md) |
-| **CreditDefaultSwapIndex** | Index CDS | Index Model | [View →](instruments/credit/cds_index.md) |
-| **CDX/iTraxx Options** | Index Options | Black's Model | [View →](instruments/credit/cdx_options.md) |
-
+<h4 id="credit-credit-protection"><span class="category-badge badge-credit">CREDIT</span> Credit Protection<a class="headerlink" href="#credit-credit-protection" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Type</th>
+<th>Pricing Methods</th>
+<th>Documentation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CreditDefaultSwap</strong></td>
+<td>Single-Name CDS</td>
+<td>ISDA Standard, Hazard Rate</td>
+<td><a href="instruments/credit/cds/">View →</a></td>
+</tr>
+<tr>
+<td><strong>CreditDefaultSwapIndex</strong></td>
+<td>Index CDS</td>
+<td>Index Model</td>
+<td><a href="instruments/credit/cds_index/">View →</a></td>
+</tr>
+<tr>
+<td><strong>CDX/iTraxx Options</strong></td>
+<td>Index Options</td>
+<td>Black's Model</td>
+<td><a href="instruments/credit/cdx_options/">View →</a></td>
+</tr>
+</tbody>
+</table>
 </div>
 <h2 id="learning-path">🎓 Learning Path<a class="headerlink" href="#learning-path" title="Permanent link">¶</a></h2>
 <pre class="mermaid"><code>graph LR
