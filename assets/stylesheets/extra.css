@@ -420,6 +420,55 @@ table tbody tr:nth-child(even) {
 }
 
 /* ============================================
+   What's Next Grid
+   ============================================ */
+.next-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.6rem;
+    margin-top: 1.8rem;
+}
+
+.next-steps-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 18px;
+    padding: 1.6rem 1.75rem;
+    box-shadow: 0 20px 42px -28px rgba(6, 69, 173, 0.55);
+    border: 1px solid rgba(6, 69, 173, 0.12);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.next-steps-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(66, 133, 244, 0.18), rgba(118, 75, 162, 0.16));
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.next-steps-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 26px 48px -30px rgba(6, 69, 173, 0.6);
+}
+
+.next-steps-card:hover::before {
+    opacity: 1;
+}
+
+.next-steps-card h3 {
+    margin-top: 0;
+    color: var(--ql-primary);
+}
+
+.next-steps-card ol {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+/* ============================================
    Pricing Panels
    ============================================ */
 .pricing-panels {
@@ -524,6 +573,7 @@ table tbody tr:nth-child(even) {
 @media (max-width: 640px) {
     .hero-banner {
         padding: 3rem 1.5rem;
+        margin-bottom: 2.5rem;
     }
 
     .hero-actions {
@@ -532,6 +582,43 @@ table tbody tr:nth-child(even) {
 
     .hero-button {
         width: 100%;
+    }
+
+    .stats-container {
+        gap: 1rem;
+    }
+
+    .stat-box {
+        padding: 1.45rem 1.3rem;
+    }
+
+    .stat-value {
+        font-size: 1.9rem;
+    }
+
+    .pricing-panels {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-panel {
+        padding: 1.5rem 1.35rem;
+    }
+
+    .quick-links {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-link {
+        padding: 1.05rem 1.25rem;
+    }
+
+    .next-steps-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    .next-steps-card {
+        padding: 1.4rem 1.25rem;
     }
 }
 
