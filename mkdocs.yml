@@ -10,16 +10,16 @@ theme:
   # Google/Wikipedia inspired clean theme
   palette:
     - scheme: default
-      primary: white
-      accent: blue
+      primary: indigo
+      accent: indigo
       toggle:
-        icon: material/brightness-7
+        icon: material/weather-night
         name: Switch to dark mode
     - scheme: slate
-      primary: grey
-      accent: blue
+      primary: indigo
+      accent: indigo
       toggle:
-        icon: material/brightness-4
+        icon: material/weather-sunny
         name: Switch to light mode
 
   # Clean, Wikipedia-style font
