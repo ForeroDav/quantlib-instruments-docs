@@ -29,6 +29,18 @@
          <lastmod>2025-10-17</lastmod>
     </url>
     <url>
+         <loc>http://localhost:8000/guides/models/binomial/</loc>
+         <lastmod>2025-10-17</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/guides/models/black_scholes/</loc>
+         <lastmod>2025-10-17</lastmod>
+    </url>
+    <url>
+         <loc>http://localhost:8000/guides/models/monte_carlo/</loc>
+         <lastmod>2025-10-17</lastmod>
+    </url>
+    <url>
          <loc>http://localhost:8000/instruments/</loc>
          <lastmod>2025-10-17</lastmod>
     </url>
