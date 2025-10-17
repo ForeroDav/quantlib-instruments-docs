@@ -1,0 +1,1163 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Professional documentation for QuantLib-based financial instruments pricing and valuation" name="description"/>
+<meta content="David Forero" name="author"/>
+<link href="http://localhost:8000/instruments/equity/equity_swap/" rel="canonical"/>
+<link href="../../" rel="prev"/>
+<link href="../equity_index_swap/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.5.44" name="generator"/>
+<title>Equity Swap - QuantLib Financial Instruments Documentation</title>
+<link href="../../../assets/stylesheets/main.0253249f.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="blue" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#equity-swap">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="QuantLib Financial Instruments Documentation" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="QuantLib Financial Instruments Documentation">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            QuantLib Financial Instruments Documentation
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Equity Swap
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="blue" data-md-color-media="" data-md-color-primary="white" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="blue" data-md-color-media="" data-md-color-primary="grey" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<a aria-label="Share" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1" title="Share">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+</a>
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+        
+  
+    
+  
+  Home
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../guides/installation/">
+          
+  
+    
+  
+  Getting Started
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../">
+          
+  
+    
+  
+  Instruments
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../examples/basic_pricing/">
+          
+  
+    
+  
+  Examples
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../api/">
+        
+  
+    
+  
+  API Reference
+
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="QuantLib Financial Instruments Documentation" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="QuantLib Financial Instruments Documentation">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    QuantLib Financial Instruments Documentation
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Getting Started
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../guides/installation/">
+<span class="md-ellipsis">
+    Installation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../guides/quickstart/">
+<span class="md-ellipsis">
+    Quick Start
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../">
+<span class="md-ellipsis">
+    Instruments
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            Instruments
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+<span class="md-ellipsis">
+    Equity
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+            Equity
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Equity Swap
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    Equity Swap
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overview">
+<span class="md-ellipsis">
+      Overview
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-features">
+<span class="md-ellipsis">
+      💡 Key Features
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#python-class-implementation">
+<span class="md-ellipsis">
+      📐 Python Class Implementation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usage-examples">
+<span class="md-ellipsis">
+      📊 Usage Examples
+    </span>
+</a>
+<nav aria-label="📊 Usage Examples" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-1-basic-equity-swap">
+<span class="md-ellipsis">
+      Example 1: Basic Equity Swap
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-2-calculate-cash-flows">
+<span class="md-ellipsis">
+      Example 2: Calculate Cash Flows
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-3-npv-calculation">
+<span class="md-ellipsis">
+      Example 3: NPV Calculation
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#use-cases">
+<span class="md-ellipsis">
+      🎯 Use Cases
+    </span>
+</a>
+<nav aria-label="🎯 Use Cases" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-synthetic-equity-position">
+<span class="md-ellipsis">
+      1. Synthetic Equity Position
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-portfolio-hedging">
+<span class="md-ellipsis">
+      2. Portfolio Hedging
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pricing-methods">
+<span class="md-ellipsis">
+      📈 Pricing Methods
+    </span>
+</a>
+<nav aria-label="📈 Pricing Methods" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#monte-carlo-simulation">
+<span class="md-ellipsis">
+      Monte Carlo Simulation
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#risk-metrics">
+<span class="md-ellipsis">
+      📊 Risk Metrics
+    </span>
+</a>
+<nav aria-label="📊 Risk Metrics" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#greeks-calculation">
+<span class="md-ellipsis">
+      Greeks Calculation
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#related-instruments">
+<span class="md-ellipsis">
+      🔗 Related Instruments
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#references">
+<span class="md-ellipsis">
+      📚 References
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#important-notes">
+<span class="md-ellipsis">
+      ⚠️ Important Notes
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../equity_index_swap/">
+<span class="md-ellipsis">
+    Equity Index Swap
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../american_warrant/">
+<span class="md-ellipsis">
+    American Warrant
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../american_option/">
+<span class="md-ellipsis">
+    American Option
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../european_option/">
+<span class="md-ellipsis">
+    European Option
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../index_futures/">
+<span class="md-ellipsis">
+    Index Futures
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+<span class="md-ellipsis">
+    Fixed Income
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+            Fixed Income
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fixed_income/treasury_bond/">
+<span class="md-ellipsis">
+    Treasury Bond
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fixed_income/callable_bond/">
+<span class="md-ellipsis">
+    Callable Bond
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fixed_income/frn/">
+<span class="md-ellipsis">
+    Floating Rate Note
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+<span class="md-ellipsis">
+    Credit
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+            Credit
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../credit/cds/">
+<span class="md-ellipsis">
+    Credit Default Swap
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../credit/cds_index/">
+<span class="md-ellipsis">
+    CDS Index
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../credit/cdx_options/">
+<span class="md-ellipsis">
+    CDX/iTraxx Options
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+<span class="md-ellipsis">
+    Interest Rates
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+            Interest Rates
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../rates/irs/">
+<span class="md-ellipsis">
+    Interest Rate Swap
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+<span class="md-ellipsis">
+    FX
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_6">
+<span class="md-nav__icon md-icon"></span>
+            FX
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fx/currency_forward/">
+<span class="md-ellipsis">
+    Currency Forward
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="">
+<span class="md-ellipsis">
+    Cash Flow
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_7">
+<span class="md-nav__icon md-icon"></span>
+            Cash Flow
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../cashflow/overview/">
+<span class="md-ellipsis">
+    Overview
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    Examples
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            Examples
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../examples/basic_pricing/">
+<span class="md-ellipsis">
+    Basic Instrument Pricing with QuantLib
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../examples/advanced_valuation/">
+<span class="md-ellipsis">
+    Advanced Valuation Techniques
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../api/">
+<span class="md-ellipsis">
+    API Reference
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="equity-swap">Equity Swap<a class="headerlink" href="#equity-swap" title="Permanent link">¶</a></h1>
+<p><span class="category-badge badge-equity">EQUITY</span></p>
+<p>Exchange of cash flows where at least one leg is based on equity returns.</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
+<p><strong>Class:</strong> <code>EquitySwap</code>
+<strong>Category:</strong> Equity
+<strong>Type:</strong> Total Return Swap</p>
+<p>An equity swap is a bilateral financial derivative contract where two parties agree to exchange sets of future cash flows. Typically, one leg is based on the total return (price appreciation plus dividends) of an equity or equity index, while the other leg is a fixed or floating rate.</p>
+<h2 id="key-features">💡 Key Features<a class="headerlink" href="#key-features" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Total Return Exchange</strong>: Combines price appreciation and dividend payments</li>
+<li><strong>Leverage</strong>: Gain equity exposure without owning the underlying</li>
+<li><strong>Customizable</strong>: Flexible notional amounts and payment schedules</li>
+<li><strong>Hedging</strong>: Effective tool for managing equity risk</li>
+</ul>
+<h2 id="python-class-implementation">📐 Python Class Implementation<a class="headerlink" href="#python-class-implementation" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">QuantLib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ql</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">class</span><span class="w"> </span><span class="nc">SwapLegType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">    </span><span class="sd">"""Type of swap leg"""</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="n">EQUITY_RETURN</span> <span class="o">=</span> <span class="s2">"equity_return"</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="n">FIXED_RATE</span> <span class="o">=</span> <span class="s2">"fixed_rate"</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="n">FLOATING_RATE</span> <span class="o">=</span> <span class="s2">"floating_rate"</span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="nd">@dataclass</span>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="k">class</span><span class="w"> </span><span class="nc">EquityLeg</span><span class="p">:</span>
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">    </span><span class="sd">"""Equity leg of the swap"""</span>
+<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="n">underlying_ticker</span><span class="p">:</span> <span class="nb">str</span>
+<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>    <span class="n">initial_price</span><span class="p">:</span> <span class="nb">float</span>
+<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a>    <span class="n">notional</span><span class="p">:</span> <span class="nb">float</span>
+<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a>    <span class="n">dividend_yield</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a>
+<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">calculate_return</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">final_price</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+<a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a>                        <span class="n">period_days</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">        </span><span class="sd">"""</span>
+<a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">        Calculate total return including price appreciation and dividends</span>
+<a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a>
+<a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">        Args:</span>
+<a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">            final_price: Final price of underlying</span>
+<a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">            period_days: Number of days in period</span>
+<a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a>
+<a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">        Returns:</span>
+<a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">            Total return amount</span>
+<a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">        """</span>
+<a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a>        <span class="c1"># Price return</span>
+<a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a>        <span class="n">price_return</span> <span class="o">=</span> <span class="p">(</span><span class="n">final_price</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_price</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_price</span>
+<a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a>
+<a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a>        <span class="c1"># Dividend return (assuming continuous compounding)</span>
+<a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a>        <span class="n">dividend_return</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dividend_yield</span> <span class="o">*</span> <span class="p">(</span><span class="n">period_days</span> <span class="o">/</span> <span class="mf">365.0</span><span class="p">)</span>
+<a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a>
+<a href="#__codelineno-0-39" id="__codelineno-0-39" name="__codelineno-0-39"></a>        <span class="c1"># Total return</span>
+<a href="#__codelineno-0-40" id="__codelineno-0-40" name="__codelineno-0-40"></a>        <span class="n">total_return</span> <span class="o">=</span> <span class="n">price_return</span> <span class="o">+</span> <span class="n">dividend_return</span>
+<a href="#__codelineno-0-41" id="__codelineno-0-41" name="__codelineno-0-41"></a>
+<a href="#__codelineno-0-42" id="__codelineno-0-42" name="__codelineno-0-42"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">notional</span> <span class="o">*</span> <span class="n">total_return</span>
+<a href="#__codelineno-0-43" id="__codelineno-0-43" name="__codelineno-0-43"></a>
+<a href="#__codelineno-0-44" id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="nd">@dataclass</span>
+<a href="#__codelineno-0-45" id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="k">class</span><span class="w"> </span><span class="nc">FixedLeg</span><span class="p">:</span>
+<a href="#__codelineno-0-46" id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="w">    </span><span class="sd">"""Fixed rate leg of the swap"""</span>
+<a href="#__codelineno-0-47" id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="n">notional</span><span class="p">:</span> <span class="nb">float</span>
+<a href="#__codelineno-0-48" id="__codelineno-0-48" name="__codelineno-0-48"></a>    <span class="n">fixed_rate</span><span class="p">:</span> <span class="nb">float</span>
+<a href="#__codelineno-0-49" id="__codelineno-0-49" name="__codelineno-0-49"></a>    <span class="n">day_count</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"ACT/360"</span>
+<a href="#__codelineno-0-50" id="__codelineno-0-50" name="__codelineno-0-50"></a>
+<a href="#__codelineno-0-51" id="__codelineno-0-51" name="__codelineno-0-51"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">calculate_payment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">period_days</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<a href="#__codelineno-0-52" id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="w">        </span><span class="sd">"""</span>
+<a href="#__codelineno-0-53" id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">        Calculate fixed payment</span>
+<a href="#__codelineno-0-54" id="__codelineno-0-54" name="__codelineno-0-54"></a>
+<a href="#__codelineno-0-55" id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">        Args:</span>
+<a href="#__codelineno-0-56" id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">            period_days: Number of days in period</span>
+<a href="#__codelineno-0-57" id="__codelineno-0-57" name="__codelineno-0-57"></a>
+<a href="#__codelineno-0-58" id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">        Returns:</span>
+<a href="#__codelineno-0-59" id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">            Fixed payment amount</span>
+<a href="#__codelineno-0-60" id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sd">        """</span>
+<a href="#__codelineno-0-61" id="__codelineno-0-61" name="__codelineno-0-61"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">day_count</span> <span class="o">==</span> <span class="s2">"ACT/360"</span><span class="p">:</span>
+<a href="#__codelineno-0-62" id="__codelineno-0-62" name="__codelineno-0-62"></a>            <span class="n">year_fraction</span> <span class="o">=</span> <span class="n">period_days</span> <span class="o">/</span> <span class="mf">360.0</span>
+<a href="#__codelineno-0-63" id="__codelineno-0-63" name="__codelineno-0-63"></a>        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">day_count</span> <span class="o">==</span> <span class="s2">"ACT/365"</span><span class="p">:</span>
+<a href="#__codelineno-0-64" id="__codelineno-0-64" name="__codelineno-0-64"></a>            <span class="n">year_fraction</span> <span class="o">=</span> <span class="n">period_days</span> <span class="o">/</span> <span class="mf">365.0</span>
+<a href="#__codelineno-0-65" id="__codelineno-0-65" name="__codelineno-0-65"></a>        <span class="k">else</span><span class="p">:</span>  <span class="c1"># 30/360</span>
+<a href="#__codelineno-0-66" id="__codelineno-0-66" name="__codelineno-0-66"></a>            <span class="n">year_fraction</span> <span class="o">=</span> <span class="n">period_days</span> <span class="o">/</span> <span class="mf">360.0</span>
+<a href="#__codelineno-0-67" id="__codelineno-0-67" name="__codelineno-0-67"></a>
+<a href="#__codelineno-0-68" id="__codelineno-0-68" name="__codelineno-0-68"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">notional</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">fixed_rate</span> <span class="o">*</span> <span class="n">year_fraction</span>
+<a href="#__codelineno-0-69" id="__codelineno-0-69" name="__codelineno-0-69"></a>
+<a href="#__codelineno-0-70" id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="k">class</span><span class="w"> </span><span class="nc">EquitySwap</span><span class="p">:</span>
+<a href="#__codelineno-0-71" id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="w">    </span><span class="sd">"""</span>
+<a href="#__codelineno-0-72" id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">    Complete implementation of an Equity Total Return Swap</span>
+<a href="#__codelineno-0-73" id="__codelineno-0-73" name="__codelineno-0-73"></a>
+<a href="#__codelineno-0-74" id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">    Attributes:</span>
+<a href="#__codelineno-0-75" id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="sd">        equity_leg: Equity return leg</span>
+<a href="#__codelineno-0-76" id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">        fixed_leg: Fixed rate leg</span>
+<a href="#__codelineno-0-77" id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="sd">        start_date: Swap start date</span>
+<a href="#__codelineno-0-78" id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="sd">        maturity_date: Swap maturity date</span>
+<a href="#__codelineno-0-79" id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="sd">        payment_frequency: Payments per year</span>
+<a href="#__codelineno-0-80" id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="sd">        position: 'payer' or 'receiver' of equity returns</span>
+<a href="#__codelineno-0-81" id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="sd">    """</span>
+<a href="#__codelineno-0-82" id="__codelineno-0-82" name="__codelineno-0-82"></a>
+<a href="#__codelineno-0-83" id="__codelineno-0-83" name="__codelineno-0-83"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<a href="#__codelineno-0-84" id="__codelineno-0-84" name="__codelineno-0-84"></a>        <span class="bp">self</span><span class="p">,</span>
+<a href="#__codelineno-0-85" id="__codelineno-0-85" name="__codelineno-0-85"></a>        <span class="n">equity_leg</span><span class="p">:</span> <span class="n">EquityLeg</span><span class="p">,</span>
+<a href="#__codelineno-0-86" id="__codelineno-0-86" name="__codelineno-0-86"></a>        <span class="n">fixed_leg</span><span class="p">:</span> <span class="n">FixedLeg</span><span class="p">,</span>
+<a href="#__codelineno-0-87" id="__codelineno-0-87" name="__codelineno-0-87"></a>        <span class="n">start_date</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
+<a href="#__codelineno-0-88" id="__codelineno-0-88" name="__codelineno-0-88"></a>        <span class="n">maturity_date</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
+<a href="#__codelineno-0-89" id="__codelineno-0-89" name="__codelineno-0-89"></a>        <span class="n">payment_frequency</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>  <span class="c1"># Quarterly</span>
+<a href="#__codelineno-0-90" id="__codelineno-0-90" name="__codelineno-0-90"></a>        <span class="n">position</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"payer"</span>
+<a href="#__codelineno-0-91" id="__codelineno-0-91" name="__codelineno-0-91"></a>    <span class="p">):</span>
+<a href="#__codelineno-0-92" id="__codelineno-0-92" name="__codelineno-0-92"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">equity_leg</span> <span class="o">=</span> <span class="n">equity_leg</span>
+<a href="#__codelineno-0-93" id="__codelineno-0-93" name="__codelineno-0-93"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">fixed_leg</span> <span class="o">=</span> <span class="n">fixed_leg</span>
+<a href="#__codelineno-0-94" id="__codelineno-0-94" name="__codelineno-0-94"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">start_date</span> <span class="o">=</span> <span class="n">start_date</span>
+<a href="#__codelineno-0-95" id="__codelineno-0-95" name="__codelineno-0-95"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">maturity_date</span> <span class="o">=</span> <span class="n">maturity_date</span>
+<a href="#__codelineno-0-96" id="__codelineno-0-96" name="__codelineno-0-96"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">payment_frequency</span> <span class="o">=</span> <span class="n">payment_frequency</span>
+<a href="#__codelineno-0-97" id="__codelineno-0-97" name="__codelineno-0-97"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">position</span>  <span class="c1"># 'payer' pays equity, receives fixed</span>
+<a href="#__codelineno-0-98" id="__codelineno-0-98" name="__codelineno-0-98"></a>
+<a href="#__codelineno-0-99" id="__codelineno-0-99" name="__codelineno-0-99"></a>        <span class="c1"># Validate</span>
+<a href="#__codelineno-0-100" id="__codelineno-0-100" name="__codelineno-0-100"></a>        <span class="k">if</span> <span class="n">position</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'payer'</span><span class="p">,</span> <span class="s1">'receiver'</span><span class="p">]:</span>
+<a href="#__codelineno-0-101" id="__codelineno-0-101" name="__codelineno-0-101"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Position must be 'payer' or 'receiver'"</span><span class="p">)</span>
+<a href="#__codelineno-0-102" id="__codelineno-0-102" name="__codelineno-0-102"></a>
+<a href="#__codelineno-0-103" id="__codelineno-0-103" name="__codelineno-0-103"></a>        <span class="k">if</span> <span class="n">maturity_date</span> <span class="o">&lt;=</span> <span class="n">start_date</span><span class="p">:</span>
+<a href="#__codelineno-0-104" id="__codelineno-0-104" name="__codelineno-0-104"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Maturity must be after start date"</span><span class="p">)</span>
+<a href="#__codelineno-0-105" id="__codelineno-0-105" name="__codelineno-0-105"></a>
+<a href="#__codelineno-0-106" id="__codelineno-0-106" name="__codelineno-0-106"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">generate_payment_schedule</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">datetime</span><span class="p">]:</span>
+<a href="#__codelineno-0-107" id="__codelineno-0-107" name="__codelineno-0-107"></a><span class="w">        </span><span class="sd">"""</span>
+<a href="#__codelineno-0-108" id="__codelineno-0-108" name="__codelineno-0-108"></a><span class="sd">        Generate payment dates based on frequency</span>
+<a href="#__codelineno-0-109" id="__codelineno-0-109" name="__codelineno-0-109"></a>
+<a href="#__codelineno-0-110" id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="sd">        Returns:</span>
+<a href="#__codelineno-0-111" id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="sd">            List of payment dates</span>
+<a href="#__codelineno-0-112" id="__codelineno-0-112" name="__codelineno-0-112"></a><span class="sd">        """</span>
+<a href="#__codelineno-0-113" id="__codelineno-0-113" name="__codelineno-0-113"></a>        <span class="n">schedule</span> <span class="o">=</span> <span class="p">[]</span>
+<a href="#__codelineno-0-114" id="__codelineno-0-114" name="__codelineno-0-114"></a>        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_date</span>
+<a href="#__codelineno-0-115" id="__codelineno-0-115" name="__codelineno-0-115"></a>        <span class="n">months_per_payment</span> <span class="o">=</span> <span class="mi">12</span> <span class="o">//</span> <span class="bp">self</span><span class="o">.</span><span class="n">payment_frequency</span>
+<a href="#__codelineno-0-116" id="__codelineno-0-116" name="__codelineno-0-116"></a>
+<a href="#__codelineno-0-117" id="__codelineno-0-117" name="__codelineno-0-117"></a>        <span class="k">while</span> <span class="n">current</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">maturity_date</span><span class="p">:</span>
+<a href="#__codelineno-0-118" id="__codelineno-0-118" name="__codelineno-0-118"></a>            <span class="c1"># Add months</span>
+<a href="#__codelineno-0-119" id="__codelineno-0-119" name="__codelineno-0-119"></a>            <span class="n">month</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">month</span> <span class="o">+</span> <span class="n">months_per_payment</span>
+<a href="#__codelineno-0-120" id="__codelineno-0-120" name="__codelineno-0-120"></a>            <span class="n">year</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">year</span> <span class="o">+</span> <span class="p">(</span><span class="n">month</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">12</span>
+<a href="#__codelineno-0-121" id="__codelineno-0-121" name="__codelineno-0-121"></a>            <span class="n">month</span> <span class="o">=</span> <span class="p">((</span><span class="n">month</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">12</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<a href="#__codelineno-0-122" id="__codelineno-0-122" name="__codelineno-0-122"></a>
+<a href="#__codelineno-0-123" id="__codelineno-0-123" name="__codelineno-0-123"></a>            <span class="n">current</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">current</span><span class="o">.</span><span class="n">day</span><span class="p">)</span>
+<a href="#__codelineno-0-124" id="__codelineno-0-124" name="__codelineno-0-124"></a>            <span class="k">if</span> <span class="n">current</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maturity_date</span><span class="p">:</span>
+<a href="#__codelineno-0-125" id="__codelineno-0-125" name="__codelineno-0-125"></a>                <span class="n">schedule</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
+<a href="#__codelineno-0-126" id="__codelineno-0-126" name="__codelineno-0-126"></a>
+<a href="#__codelineno-0-127" id="__codelineno-0-127" name="__codelineno-0-127"></a>        <span class="c1"># Ensure maturity is included</span>
+<a href="#__codelineno-0-128" id="__codelineno-0-128" name="__codelineno-0-128"></a>        <span class="k">if</span> <span class="n">schedule</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maturity_date</span><span class="p">:</span>
+<a href="#__codelineno-0-129" id="__codelineno-0-129" name="__codelineno-0-129"></a>            <span class="n">schedule</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">maturity_date</span><span class="p">)</span>
+<a href="#__codelineno-0-130" id="__codelineno-0-130" name="__codelineno-0-130"></a>
+<a href="#__codelineno-0-131" id="__codelineno-0-131" name="__codelineno-0-131"></a>        <span class="k">return</span> <span class="n">schedule</span>
+<a href="#__codelineno-0-132" id="__codelineno-0-132" name="__codelineno-0-132"></a>
+<a href="#__codelineno-0-133" id="__codelineno-0-133" name="__codelineno-0-133"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">calculate_cash_flows</span><span class="p">(</span>
+<a href="#__codelineno-0-134" id="__codelineno-0-134" name="__codelineno-0-134"></a>        <span class="bp">self</span><span class="p">,</span>
+<a href="#__codelineno-0-135" id="__codelineno-0-135" name="__codelineno-0-135"></a>        <span class="n">equity_prices</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+<a href="#__codelineno-0-136" id="__codelineno-0-136" name="__codelineno-0-136"></a>        <span class="n">valuation_date</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="kc">None</span>
+<a href="#__codelineno-0-137" id="__codelineno-0-137" name="__codelineno-0-137"></a>    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<a href="#__codelineno-0-138" id="__codelineno-0-138" name="__codelineno-0-138"></a><span class="w">        </span><span class="sd">"""</span>
+<a href="#__codelineno-0-139" id="__codelineno-0-139" name="__codelineno-0-139"></a><span class="sd">        Calculate all cash flows for the swap</span>
+<a href="#__codelineno-0-140" id="__codelineno-0-140" name="__codelineno-0-140"></a>
+<a href="#__codelineno-0-141" id="__codelineno-0-141" name="__codelineno-0-141"></a><span class="sd">        Args:</span>
+<a href="#__codelineno-0-142" id="__codelineno-0-142" name="__codelineno-0-142"></a><span class="sd">            equity_prices: List of equity prices at each payment date</span>
+<a href="#__codelineno-0-143" id="__codelineno-0-143" name="__codelineno-0-143"></a><span class="sd">            valuation_date: Date for NPV calculation</span>
+<a href="#__codelineno-0-144" id="__codelineno-0-144" name="__codelineno-0-144"></a>
+<a href="#__codelineno-0-145" id="__codelineno-0-145" name="__codelineno-0-145"></a><span class="sd">        Returns:</span>
+<a href="#__codelineno-0-146" id="__codelineno-0-146" name="__codelineno-0-146"></a><span class="sd">            Dictionary with cash flow details</span>
+<a href="#__codelineno-0-147" id="__codelineno-0-147" name="__codelineno-0-147"></a><span class="sd">        """</span>
+<a href="#__codelineno-0-148" id="__codelineno-0-148" name="__codelineno-0-148"></a>        <span class="n">schedule</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_payment_schedule</span><span class="p">()</span>
+<a href="#__codelineno-0-149" id="__codelineno-0-149" name="__codelineno-0-149"></a>
+<a href="#__codelineno-0-150" id="__codelineno-0-150" name="__codelineno-0-150"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">equity_prices</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">schedule</span><span class="p">):</span>
+<a href="#__codelineno-0-151" id="__codelineno-0-151" name="__codelineno-0-151"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<a href="#__codelineno-0-152" id="__codelineno-0-152" name="__codelineno-0-152"></a>                <span class="sa">f</span><span class="s2">"Need </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">schedule</span><span class="p">)</span><span class="si">}</span><span class="s2"> prices for </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">schedule</span><span class="p">)</span><span class="si">}</span><span class="s2"> payments"</span>
+<a href="#__codelineno-0-153" id="__codelineno-0-153" name="__codelineno-0-153"></a>            <span class="p">)</span>
+<a href="#__codelineno-0-154" id="__codelineno-0-154" name="__codelineno-0-154"></a>
+<a href="#__codelineno-0-155" id="__codelineno-0-155" name="__codelineno-0-155"></a>        <span class="n">cash_flows</span> <span class="o">=</span> <span class="p">[]</span>
+<a href="#__codelineno-0-156" id="__codelineno-0-156" name="__codelineno-0-156"></a>        <span class="n">prev_price</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">equity_leg</span><span class="o">.</span><span class="n">initial_price</span>
+<a href="#__codelineno-0-157" id="__codelineno-0-157" name="__codelineno-0-157"></a>
+<a href="#__codelineno-0-158" id="__codelineno-0-158" name="__codelineno-0-158"></a>        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">price</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">schedule</span><span class="p">,</span> <span class="n">equity_prices</span><span class="p">)):</span>
+<a href="#__codelineno-0-159" id="__codelineno-0-159" name="__codelineno-0-159"></a>            <span class="c1"># Calculate period days</span>
+<a href="#__codelineno-0-160" id="__codelineno-0-160" name="__codelineno-0-160"></a>            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a href="#__codelineno-0-161" id="__codelineno-0-161" name="__codelineno-0-161"></a>                <span class="n">period_days</span> <span class="o">=</span> <span class="p">(</span><span class="n">date</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_date</span><span class="p">)</span><span class="o">.</span><span class="n">days</span>
+<a href="#__codelineno-0-162" id="__codelineno-0-162" name="__codelineno-0-162"></a>            <span class="k">else</span><span class="p">:</span>
+<a href="#__codelineno-0-163" id="__codelineno-0-163" name="__codelineno-0-163"></a>                <span class="n">period_days</span> <span class="o">=</span> <span class="p">(</span><span class="n">date</span> <span class="o">-</span> <span class="n">schedule</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">days</span>
+<a href="#__codelineno-0-164" id="__codelineno-0-164" name="__codelineno-0-164"></a>
+<a href="#__codelineno-0-165" id="__codelineno-0-165" name="__codelineno-0-165"></a>            <span class="c1"># Equity leg payment</span>
+<a href="#__codelineno-0-166" id="__codelineno-0-166" name="__codelineno-0-166"></a>            <span class="n">equity_payment</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">equity_leg</span><span class="o">.</span><span class="n">calculate_return</span><span class="p">(</span>
+<a href="#__codelineno-0-167" id="__codelineno-0-167" name="__codelineno-0-167"></a>                <span class="n">price</span><span class="p">,</span> <span class="n">period_days</span>
+<a href="#__codelineno-0-168" id="__codelineno-0-168" name="__codelineno-0-168"></a>            <span class="p">)</span>
+<a href="#__codelineno-0-169" id="__codelineno-0-169" name="__codelineno-0-169"></a>
+<a href="#__codelineno-0-170" id="__codelineno-0-170" name="__codelineno-0-170"></a>            <span class="c1"># Fixed leg payment</span>
+<a href="#__codelineno-0-171" id="__codelineno-0-171" name="__codelineno-0-171"></a>            <span class="n">fixed_payment</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fixed_leg</span><span class="o">.</span><span class="n">calculate_payment</span><span class="p">(</span><span class="n">period_days</span><span class="p">)</span>
+<a href="#__codelineno-0-172" id="__codelineno-0-172" name="__codelineno-0-172"></a>
+<a href="#__codelineno-0-173" id="__codelineno-0-173" name="__codelineno-0-173"></a>            <span class="c1"># Net cash flow (from payer perspective)</span>
+<a href="#__codelineno-0-174" id="__codelineno-0-174" name="__codelineno-0-174"></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">==</span> <span class="s2">"payer"</span><span class="p">:</span>
+<a href="#__codelineno-0-175" id="__codelineno-0-175" name="__codelineno-0-175"></a>                <span class="n">net_cf</span> <span class="o">=</span> <span class="n">fixed_payment</span> <span class="o">-</span> <span class="n">equity_payment</span>
+<a href="#__codelineno-0-176" id="__codelineno-0-176" name="__codelineno-0-176"></a>            <span class="k">else</span><span class="p">:</span>
+<a href="#__codelineno-0-177" id="__codelineno-0-177" name="__codelineno-0-177"></a>                <span class="n">net_cf</span> <span class="o">=</span> <span class="n">equity_payment</span> <span class="o">-</span> <span class="n">fixed_payment</span>
+<a href="#__codelineno-0-178" id="__codelineno-0-178" name="__codelineno-0-178"></a>
+<a href="#__codelineno-0-179" id="__codelineno-0-179" name="__codelineno-0-179"></a>            <span class="n">cash_flows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+<a href="#__codelineno-0-180" id="__codelineno-0-180" name="__codelineno-0-180"></a>                <span class="s1">'date'</span><span class="p">:</span> <span class="n">date</span><span class="p">,</span>
+<a href="#__codelineno-0-181" id="__codelineno-0-181" name="__codelineno-0-181"></a>                <span class="s1">'equity_price'</span><span class="p">:</span> <span class="n">price</span><span class="p">,</span>
+<a href="#__codelineno-0-182" id="__codelineno-0-182" name="__codelineno-0-182"></a>                <span class="s1">'equity_payment'</span><span class="p">:</span> <span class="n">equity_payment</span><span class="p">,</span>
+<a href="#__codelineno-0-183" id="__codelineno-0-183" name="__codelineno-0-183"></a>                <span class="s1">'fixed_payment'</span><span class="p">:</span> <span class="n">fixed_payment</span><span class="p">,</span>
+<a href="#__codelineno-0-184" id="__codelineno-0-184" name="__codelineno-0-184"></a>                <span class="s1">'net_cash_flow'</span><span class="p">:</span> <span class="n">net_cf</span><span class="p">,</span>
+<a href="#__codelineno-0-185" id="__codelineno-0-185" name="__codelineno-0-185"></a>                <span class="s1">'period_days'</span><span class="p">:</span> <span class="n">period_days</span>
+<a href="#__codelineno-0-186" id="__codelineno-0-186" name="__codelineno-0-186"></a>            <span class="p">})</span>
+<a href="#__codelineno-0-187" id="__codelineno-0-187" name="__codelineno-0-187"></a>
+<a href="#__codelineno-0-188" id="__codelineno-0-188" name="__codelineno-0-188"></a>            <span class="n">prev_price</span> <span class="o">=</span> <span class="n">price</span>
+<a href="#__codelineno-0-189" id="__codelineno-0-189" name="__codelineno-0-189"></a>
+<a href="#__codelineno-0-190" id="__codelineno-0-190" name="__codelineno-0-190"></a>        <span class="k">return</span> <span class="p">{</span>
+<a href="#__codelineno-0-191" id="__codelineno-0-191" name="__codelineno-0-191"></a>            <span class="s1">'cash_flows'</span><span class="p">:</span> <span class="n">cash_flows</span><span class="p">,</span>
+<a href="#__codelineno-0-192" id="__codelineno-0-192" name="__codelineno-0-192"></a>            <span class="s1">'total_equity_payments'</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">cf</span><span class="p">[</span><span class="s1">'equity_payment'</span><span class="p">]</span>
+<a href="#__codelineno-0-193" id="__codelineno-0-193" name="__codelineno-0-193"></a>                                        <span class="k">for</span> <span class="n">cf</span> <span class="ow">in</span> <span class="n">cash_flows</span><span class="p">),</span>
+<a href="#__codelineno-0-194" id="__codelineno-0-194" name="__codelineno-0-194"></a>            <span class="s1">'total_fixed_payments'</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">cf</span><span class="p">[</span><span class="s1">'fixed_payment'</span><span class="p">]</span>
+<a href="#__codelineno-0-195" id="__codelineno-0-195" name="__codelineno-0-195"></a>                                       <span class="k">for</span> <span class="n">cf</span> <span class="ow">in</span> <span class="n">cash_flows</span><span class="p">),</span>
+<a href="#__codelineno-0-196" id="__codelineno-0-196" name="__codelineno-0-196"></a>            <span class="s1">'total_net_cash_flow'</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">cf</span><span class="p">[</span><span class="s1">'net_cash_flow'</span><span class="p">]</span>
+<a href="#__codelineno-0-197" id="__codelineno-0-197" name="__codelineno-0-197"></a>                                      <span class="k">for</span> <span class="n">cf</span> <span class="ow">in</span> <span class="n">cash_flows</span><span class="p">)</span>
+<a href="#__codelineno-0-198" id="__codelineno-0-198" name="__codelineno-0-198"></a>        <span class="p">}</span>
+<a href="#__codelineno-0-199" id="__codelineno-0-199" name="__codelineno-0-199"></a>
+<a href="#__codelineno-0-200" id="__codelineno-0-200" name="__codelineno-0-200"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">calculate_npv</span><span class="p">(</span>
+<a href="#__codelineno-0-201" id="__codelineno-0-201" name="__codelineno-0-201"></a>        <span class="bp">self</span><span class="p">,</span>
+<a href="#__codelineno-0-202" id="__codelineno-0-202" name="__codelineno-0-202"></a>        <span class="n">equity_prices</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+<a href="#__codelineno-0-203" id="__codelineno-0-203" name="__codelineno-0-203"></a>        <span class="n">discount_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+<a href="#__codelineno-0-204" id="__codelineno-0-204" name="__codelineno-0-204"></a>        <span class="n">valuation_date</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="kc">None</span>
+<a href="#__codelineno-0-205" id="__codelineno-0-205" name="__codelineno-0-205"></a>    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<a href="#__codelineno-0-206" id="__codelineno-0-206" name="__codelineno-0-206"></a><span class="w">        </span><span class="sd">"""</span>
+<a href="#__codelineno-0-207" id="__codelineno-0-207" name="__codelineno-0-207"></a><span class="sd">        Calculate Net Present Value of the swap</span>
+<a href="#__codelineno-0-208" id="__codelineno-0-208" name="__codelineno-0-208"></a>
+<a href="#__codelineno-0-209" id="__codelineno-0-209" name="__codelineno-0-209"></a><span class="sd">        Args:</span>
+<a href="#__codelineno-0-210" id="__codelineno-0-210" name="__codelineno-0-210"></a><span class="sd">            equity_prices: Projected equity prices</span>
+<a href="#__codelineno-0-211" id="__codelineno-0-211" name="__codelineno-0-211"></a><span class="sd">            discount_rate: Discount rate for NPV</span>
+<a href="#__codelineno-0-212" id="__codelineno-0-212" name="__codelineno-0-212"></a><span class="sd">            valuation_date: Valuation date (default: start_date)</span>
+<a href="#__codelineno-0-213" id="__codelineno-0-213" name="__codelineno-0-213"></a>
+<a href="#__codelineno-0-214" id="__codelineno-0-214" name="__codelineno-0-214"></a><span class="sd">        Returns:</span>
+<a href="#__codelineno-0-215" id="__codelineno-0-215" name="__codelineno-0-215"></a><span class="sd">            NPV of the swap</span>
+<a href="#__codelineno-0-216" id="__codelineno-0-216" name="__codelineno-0-216"></a><span class="sd">        """</span>
+<a href="#__codelineno-0-217" id="__codelineno-0-217" name="__codelineno-0-217"></a>        <span class="k">if</span> <span class="n">valuation_date</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a href="#__codelineno-0-218" id="__codelineno-0-218" name="__codelineno-0-218"></a>            <span class="n">valuation_date</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_date</span>
+<a href="#__codelineno-0-219" id="__codelineno-0-219" name="__codelineno-0-219"></a>
+<a href="#__codelineno-0-220" id="__codelineno-0-220" name="__codelineno-0-220"></a>        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_cash_flows</span><span class="p">(</span><span class="n">equity_prices</span><span class="p">,</span> <span class="n">valuation_date</span><span class="p">)</span>
+<a href="#__codelineno-0-221" id="__codelineno-0-221" name="__codelineno-0-221"></a>        <span class="n">npv</span> <span class="o">=</span> <span class="mf">0.0</span>
+<a href="#__codelineno-0-222" id="__codelineno-0-222" name="__codelineno-0-222"></a>
+<a href="#__codelineno-0-223" id="__codelineno-0-223" name="__codelineno-0-223"></a>        <span class="k">for</span> <span class="n">cf</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="s1">'cash_flows'</span><span class="p">]:</span>
+<a href="#__codelineno-0-224" id="__codelineno-0-224" name="__codelineno-0-224"></a>            <span class="n">days_to_payment</span> <span class="o">=</span> <span class="p">(</span><span class="n">cf</span><span class="p">[</span><span class="s1">'date'</span><span class="p">]</span> <span class="o">-</span> <span class="n">valuation_date</span><span class="p">)</span><span class="o">.</span><span class="n">days</span>
+<a href="#__codelineno-0-225" id="__codelineno-0-225" name="__codelineno-0-225"></a>            <span class="n">discount_factor</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">discount_rate</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="n">days_to_payment</span> <span class="o">/</span> <span class="mf">365.0</span><span class="p">)</span>
+<a href="#__codelineno-0-226" id="__codelineno-0-226" name="__codelineno-0-226"></a>            <span class="n">npv</span> <span class="o">+=</span> <span class="n">cf</span><span class="p">[</span><span class="s1">'net_cash_flow'</span><span class="p">]</span> <span class="o">*</span> <span class="n">discount_factor</span>
+<a href="#__codelineno-0-227" id="__codelineno-0-227" name="__codelineno-0-227"></a>
+<a href="#__codelineno-0-228" id="__codelineno-0-228" name="__codelineno-0-228"></a>        <span class="k">return</span> <span class="n">npv</span>
+<a href="#__codelineno-0-229" id="__codelineno-0-229" name="__codelineno-0-229"></a>
+<a href="#__codelineno-0-230" id="__codelineno-0-230" name="__codelineno-0-230"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<a href="#__codelineno-0-231" id="__codelineno-0-231" name="__codelineno-0-231"></a><span class="w">        </span><span class="sd">"""Get swap summary information"""</span>
+<a href="#__codelineno-0-232" id="__codelineno-0-232" name="__codelineno-0-232"></a>        <span class="k">return</span> <span class="p">{</span>
+<a href="#__codelineno-0-233" id="__codelineno-0-233" name="__codelineno-0-233"></a>            <span class="s1">'instrument_type'</span><span class="p">:</span> <span class="s1">'Equity Swap'</span><span class="p">,</span>
+<a href="#__codelineno-0-234" id="__codelineno-0-234" name="__codelineno-0-234"></a>            <span class="s1">'underlying'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">equity_leg</span><span class="o">.</span><span class="n">underlying_ticker</span><span class="p">,</span>
+<a href="#__codelineno-0-235" id="__codelineno-0-235" name="__codelineno-0-235"></a>            <span class="s1">'notional'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">equity_leg</span><span class="o">.</span><span class="n">notional</span><span class="p">,</span>
+<a href="#__codelineno-0-236" id="__codelineno-0-236" name="__codelineno-0-236"></a>            <span class="s1">'fixed_rate'</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">fixed_leg</span><span class="o">.</span><span class="n">fixed_rate</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%"</span><span class="p">,</span>
+<a href="#__codelineno-0-237" id="__codelineno-0-237" name="__codelineno-0-237"></a>            <span class="s1">'start_date'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">'%Y-%m-</span><span class="si">%d</span><span class="s1">'</span><span class="p">),</span>
+<a href="#__codelineno-0-238" id="__codelineno-0-238" name="__codelineno-0-238"></a>            <span class="s1">'maturity'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">maturity_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">'%Y-%m-</span><span class="si">%d</span><span class="s1">'</span><span class="p">),</span>
+<a href="#__codelineno-0-239" id="__codelineno-0-239" name="__codelineno-0-239"></a>            <span class="s1">'frequency'</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">payment_frequency</span><span class="si">}</span><span class="s2">x per year"</span><span class="p">,</span>
+<a href="#__codelineno-0-240" id="__codelineno-0-240" name="__codelineno-0-240"></a>            <span class="s1">'position'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">,</span>
+<a href="#__codelineno-0-241" id="__codelineno-0-241" name="__codelineno-0-241"></a>            <span class="s1">'tenor_days'</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">maturity_date</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_date</span><span class="p">)</span><span class="o">.</span><span class="n">days</span>
+<a href="#__codelineno-0-242" id="__codelineno-0-242" name="__codelineno-0-242"></a>        <span class="p">}</span>
+</code></pre></div>
+<h2 id="usage-examples">📊 Usage Examples<a class="headerlink" href="#usage-examples" title="Permanent link">¶</a></h2>
+<h3 id="example-1-basic-equity-swap">Example 1: Basic Equity Swap<a class="headerlink" href="#example-1-basic-equity-swap" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Set up equity leg</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">equity_leg</span> <span class="o">=</span> <span class="n">EquityLeg</span><span class="p">(</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>    <span class="n">underlying_ticker</span><span class="o">=</span><span class="s2">"SPY"</span><span class="p">,</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>    <span class="n">initial_price</span><span class="o">=</span><span class="mf">450.00</span><span class="p">,</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>    <span class="n">notional</span><span class="o">=</span><span class="mi">10_000_000</span><span class="p">,</span>  <span class="c1"># $10M</span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>    <span class="n">dividend_yield</span><span class="o">=</span><span class="mf">0.015</span>  <span class="c1"># 1.5% annual dividend yield</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="p">)</span>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="c1"># Set up fixed leg</span>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="n">fixed_leg</span> <span class="o">=</span> <span class="n">FixedLeg</span><span class="p">(</span>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>    <span class="n">notional</span><span class="o">=</span><span class="mi">10_000_000</span><span class="p">,</span>
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>    <span class="n">fixed_rate</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>  <span class="c1"># 5% annual</span>
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>    <span class="n">day_count</span><span class="o">=</span><span class="s2">"ACT/360"</span>
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="p">)</span>
+<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a>
+<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="c1"># Create swap</span>
+<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="n">swap</span> <span class="o">=</span> <span class="n">EquitySwap</span><span class="p">(</span>
+<a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a>    <span class="n">equity_leg</span><span class="o">=</span><span class="n">equity_leg</span><span class="p">,</span>
+<a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a>    <span class="n">fixed_leg</span><span class="o">=</span><span class="n">fixed_leg</span><span class="p">,</span>
+<a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a>    <span class="n">start_date</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
+<a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a>    <span class="n">maturity_date</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
+<a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a>    <span class="n">payment_frequency</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>  <span class="c1"># Quarterly payments</span>
+<a href="#__codelineno-1-25" id="__codelineno-1-25" name="__codelineno-1-25"></a>    <span class="n">position</span><span class="o">=</span><span class="s2">"payer"</span>  <span class="c1"># Pay equity, receive fixed</span>
+<a href="#__codelineno-1-26" id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="p">)</span>
+<a href="#__codelineno-1-27" id="__codelineno-1-27" name="__codelineno-1-27"></a>
+<a href="#__codelineno-1-28" id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="c1"># Get summary</span>
+<a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Swap Summary:"</span><span class="p">)</span>
+<a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">swap</span><span class="o">.</span><span class="n">get_summary</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Output:</strong>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>Swap Summary:
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>  instrument_type: Equity Swap
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>  underlying: SPY
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>  notional: 10000000
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>  fixed_rate: 5.00%
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>  start_date: 2025-01-15
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>  maturity: 2026-01-15
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>  frequency: 4x per year
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>  position: payer
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>  tenor_days: 365
+</code></pre></div></p>
+<h3 id="example-2-calculate-cash-flows">Example 2: Calculate Cash Flows<a class="headerlink" href="#example-2-calculate-cash-flows" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Projected SPY prices at each quarterly payment</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">projected_prices</span> <span class="o">=</span> <span class="p">[</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>    <span class="mf">460.00</span><span class="p">,</span>  <span class="c1"># Q1: +2.22%</span>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>    <span class="mf">465.00</span><span class="p">,</span>  <span class="c1"># Q2: +1.09%</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>    <span class="mf">470.00</span><span class="p">,</span>  <span class="c1"># Q3: +1.08%</span>
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>    <span class="mf">480.00</span>   <span class="c1"># Q4: +2.13%</span>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="p">]</span>
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="c1"># Calculate all cash flows</span>
+<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="n">result</span> <span class="o">=</span> <span class="n">swap</span><span class="o">.</span><span class="n">calculate_cash_flows</span><span class="p">(</span><span class="n">projected_prices</span><span class="p">)</span>
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>
+<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Cash Flow Schedule:"</span><span class="p">)</span>
+<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="k">for</span> <span class="n">cf</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="s1">'cash_flows'</span><span class="p">]:</span>
+<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Date: </span><span class="si">{</span><span class="n">cf</span><span class="p">[</span><span class="s1">'date'</span><span class="p">]</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">'%Y-%m-</span><span class="si">%d</span><span class="s1">'</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Equity Price: $</span><span class="si">{</span><span class="n">cf</span><span class="p">[</span><span class="s1">'equity_price'</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Equity Payment: $</span><span class="si">{</span><span class="n">cf</span><span class="p">[</span><span class="s1">'equity_payment'</span><span class="p">]</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Fixed Payment: $</span><span class="si">{</span><span class="n">cf</span><span class="p">[</span><span class="s1">'fixed_payment'</span><span class="p">]</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Net Cash Flow: $</span><span class="si">{</span><span class="n">cf</span><span class="p">[</span><span class="s1">'net_cash_flow'</span><span class="p">]</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a>    <span class="nb">print</span><span class="p">()</span>
+<a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a>
+<a href="#__codelineno-3-22" id="__codelineno-3-22" name="__codelineno-3-22"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Total Equity Payments: $</span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">'total_equity_payments'</span><span class="p">]</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-3-23" id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Total Fixed Payments: $</span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">'total_fixed_payments'</span><span class="p">]</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-3-24" id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Total Net Cash Flow: $</span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">'total_net_cash_flow'</span><span class="p">]</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="example-3-npv-calculation">Example 3: NPV Calculation<a class="headerlink" href="#example-3-npv-calculation" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># Calculate NPV with 4% discount rate</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">npv</span> <span class="o">=</span> <span class="n">swap</span><span class="o">.</span><span class="n">calculate_npv</span><span class="p">(</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>    <span class="n">equity_prices</span><span class="o">=</span><span class="n">projected_prices</span><span class="p">,</span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>    <span class="n">discount_rate</span><span class="o">=</span><span class="mf">0.04</span><span class="p">,</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>    <span class="n">valuation_date</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="p">)</span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Swap NPV: $</span><span class="si">{</span><span class="n">npv</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="c1"># Sensitivity analysis</span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="n">discount_rates</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">]</span>
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">NPV Sensitivity to Discount Rate:"</span><span class="p">)</span>
+<a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="k">for</span> <span class="n">rate</span> <span class="ow">in</span> <span class="n">discount_rates</span><span class="p">:</span>
+<a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a>    <span class="n">npv</span> <span class="o">=</span> <span class="n">swap</span><span class="o">.</span><span class="n">calculate_npv</span><span class="p">(</span><span class="n">projected_prices</span><span class="p">,</span> <span class="n">rate</span><span class="p">)</span>
+<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="n">rate</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%: $</span><span class="si">{</span><span class="n">npv</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="use-cases">🎯 Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">¶</a></h2>
+<h3 id="1-synthetic-equity-position">1. Synthetic Equity Position<a class="headerlink" href="#1-synthetic-equity-position" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># Investor wants S&amp;P 500 exposure without buying shares</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="c1"># Uses equity swap to gain exposure while paying LIBOR + spread</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="n">synthetic_exposure</span> <span class="o">=</span> <span class="n">EquitySwap</span><span class="p">(</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>    <span class="n">equity_leg</span><span class="o">=</span><span class="n">EquityLeg</span><span class="p">(</span><span class="s2">"SPX"</span><span class="p">,</span> <span class="mf">4500.0</span><span class="p">,</span> <span class="mi">50_000_000</span><span class="p">,</span> <span class="mf">0.0175</span><span class="p">),</span>
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a>    <span class="n">fixed_leg</span><span class="o">=</span><span class="n">FixedLeg</span><span class="p">(</span><span class="mi">50_000_000</span><span class="p">,</span> <span class="mf">0.0525</span><span class="p">),</span>  <span class="c1"># LIBOR + 25bps</span>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a>    <span class="n">start_date</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span>
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>    <span class="n">maturity_date</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">365</span><span class="p">),</span>
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a>    <span class="n">payment_frequency</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a>    <span class="n">position</span><span class="o">=</span><span class="s2">"receiver"</span>  <span class="c1"># Receive equity returns</span>
+<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="p">)</span>
+<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a>
+<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Synthetic long position created"</span><span class="p">)</span>
+<a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Exposure: $</span><span class="si">{</span><span class="n">synthetic_exposure</span><span class="o">.</span><span class="n">equity_leg</span><span class="o">.</span><span class="n">notional</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="2-portfolio-hedging">2. Portfolio Hedging<a class="headerlink" href="#2-portfolio-hedging" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># Fund manager hedges $100M equity portfolio</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">hedge_swap</span> <span class="o">=</span> <span class="n">EquitySwap</span><span class="p">(</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>    <span class="n">equity_leg</span><span class="o">=</span><span class="n">EquityLeg</span><span class="p">(</span><span class="s2">"Portfolio"</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">,</span> <span class="mi">100_000_000</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">),</span>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>    <span class="n">fixed_leg</span><span class="o">=</span><span class="n">FixedLeg</span><span class="p">(</span><span class="mi">100_000_000</span><span class="p">,</span> <span class="mf">0.045</span><span class="p">),</span>
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>    <span class="n">start_date</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>    <span class="n">maturity_date</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">),</span>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>    <span class="n">payment_frequency</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>  <span class="c1"># Semi-annual</span>
+<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a>    <span class="n">position</span><span class="o">=</span><span class="s2">"payer"</span>  <span class="c1"># Pay equity returns (short position)</span>
+<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="p">)</span>
+<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a>
+<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Portfolio hedge established"</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="pricing-methods">📈 Pricing Methods<a class="headerlink" href="#pricing-methods" title="Permanent link">¶</a></h2>
+<h3 id="monte-carlo-simulation">Monte Carlo Simulation<a class="headerlink" href="#monte-carlo-simulation" title="Permanent link">¶</a></h3>
+<p>For path-dependent features or complex payoffs:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">monte_carlo_equity_swap_pricing</span><span class="p">(</span>
+<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a>    <span class="n">swap</span><span class="p">:</span> <span class="n">EquitySwap</span><span class="p">,</span>
+<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a>    <span class="n">spot_price</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a>    <span class="n">volatility</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a>    <span class="n">num_simulations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10000</span>
+<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">    </span><span class="sd">"""</span>
+<a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="sd">    Price equity swap using Monte Carlo</span>
+<a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a>
+<a href="#__codelineno-7-12" id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="sd">    Returns:</span>
+<a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="sd">        Dict with NPV statistics</span>
+<a href="#__codelineno-7-14" id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="sd">    """</span>
+<a href="#__codelineno-7-15" id="__codelineno-7-15" name="__codelineno-7-15"></a>    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<a href="#__codelineno-7-16" id="__codelineno-7-16" name="__codelineno-7-16"></a>    <span class="n">schedule</span> <span class="o">=</span> <span class="n">swap</span><span class="o">.</span><span class="n">generate_payment_schedule</span><span class="p">()</span>
+<a href="#__codelineno-7-17" id="__codelineno-7-17" name="__codelineno-7-17"></a>    <span class="n">dt</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">swap</span><span class="o">.</span><span class="n">payment_frequency</span>
+<a href="#__codelineno-7-18" id="__codelineno-7-18" name="__codelineno-7-18"></a>
+<a href="#__codelineno-7-19" id="__codelineno-7-19" name="__codelineno-7-19"></a>    <span class="n">npvs</span> <span class="o">=</span> <span class="p">[]</span>
+<a href="#__codelineno-7-20" id="__codelineno-7-20" name="__codelineno-7-20"></a>
+<a href="#__codelineno-7-21" id="__codelineno-7-21" name="__codelineno-7-21"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_simulations</span><span class="p">):</span>
+<a href="#__codelineno-7-22" id="__codelineno-7-22" name="__codelineno-7-22"></a>        <span class="n">prices</span> <span class="o">=</span> <span class="p">[</span><span class="n">spot_price</span><span class="p">]</span>
+<a href="#__codelineno-7-23" id="__codelineno-7-23" name="__codelineno-7-23"></a>
+<a href="#__codelineno-7-24" id="__codelineno-7-24" name="__codelineno-7-24"></a>        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">schedule</span><span class="p">)):</span>
+<a href="#__codelineno-7-25" id="__codelineno-7-25" name="__codelineno-7-25"></a>            <span class="c1"># Geometric Brownian Motion</span>
+<a href="#__codelineno-7-26" id="__codelineno-7-26" name="__codelineno-7-26"></a>            <span class="n">dW</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">))</span>
+<a href="#__codelineno-7-27" id="__codelineno-7-27" name="__codelineno-7-27"></a>            <span class="n">next_price</span> <span class="o">=</span> <span class="n">prices</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span>
+<a href="#__codelineno-7-28" id="__codelineno-7-28" name="__codelineno-7-28"></a>                <span class="p">(</span><span class="mf">0.05</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">volatility</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span>
+<a href="#__codelineno-7-29" id="__codelineno-7-29" name="__codelineno-7-29"></a>                <span class="n">volatility</span> <span class="o">*</span> <span class="n">dW</span>
+<a href="#__codelineno-7-30" id="__codelineno-7-30" name="__codelineno-7-30"></a>            <span class="p">)</span>
+<a href="#__codelineno-7-31" id="__codelineno-7-31" name="__codelineno-7-31"></a>            <span class="n">prices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">next_price</span><span class="p">)</span>
+<a href="#__codelineno-7-32" id="__codelineno-7-32" name="__codelineno-7-32"></a>
+<a href="#__codelineno-7-33" id="__codelineno-7-33" name="__codelineno-7-33"></a>        <span class="n">prices</span> <span class="o">=</span> <span class="n">prices</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>  <span class="c1"># Remove initial price</span>
+<a href="#__codelineno-7-34" id="__codelineno-7-34" name="__codelineno-7-34"></a>        <span class="n">npv</span> <span class="o">=</span> <span class="n">swap</span><span class="o">.</span><span class="n">calculate_npv</span><span class="p">(</span><span class="n">prices</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">)</span>
+<a href="#__codelineno-7-35" id="__codelineno-7-35" name="__codelineno-7-35"></a>        <span class="n">npvs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">npv</span><span class="p">)</span>
+<a href="#__codelineno-7-36" id="__codelineno-7-36" name="__codelineno-7-36"></a>
+<a href="#__codelineno-7-37" id="__codelineno-7-37" name="__codelineno-7-37"></a>    <span class="k">return</span> <span class="p">{</span>
+<a href="#__codelineno-7-38" id="__codelineno-7-38" name="__codelineno-7-38"></a>        <span class="s1">'mean_npv'</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">npvs</span><span class="p">),</span>
+<a href="#__codelineno-7-39" id="__codelineno-7-39" name="__codelineno-7-39"></a>        <span class="s1">'std_npv'</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">npvs</span><span class="p">),</span>
+<a href="#__codelineno-7-40" id="__codelineno-7-40" name="__codelineno-7-40"></a>        <span class="s1">'confidence_95'</span><span class="p">:</span> <span class="p">(</span>
+<a href="#__codelineno-7-41" id="__codelineno-7-41" name="__codelineno-7-41"></a>            <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">npvs</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">),</span>
+<a href="#__codelineno-7-42" id="__codelineno-7-42" name="__codelineno-7-42"></a>            <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">npvs</span><span class="p">,</span> <span class="mf">97.5</span><span class="p">)</span>
+<a href="#__codelineno-7-43" id="__codelineno-7-43" name="__codelineno-7-43"></a>        <span class="p">)</span>
+<a href="#__codelineno-7-44" id="__codelineno-7-44" name="__codelineno-7-44"></a>    <span class="p">}</span>
+<a href="#__codelineno-7-45" id="__codelineno-7-45" name="__codelineno-7-45"></a>
+<a href="#__codelineno-7-46" id="__codelineno-7-46" name="__codelineno-7-46"></a><span class="c1"># Example usage</span>
+<a href="#__codelineno-7-47" id="__codelineno-7-47" name="__codelineno-7-47"></a><span class="n">mc_result</span> <span class="o">=</span> <span class="n">monte_carlo_equity_swap_pricing</span><span class="p">(</span><span class="n">swap</span><span class="p">,</span> <span class="mf">450.0</span><span class="p">,</span> <span class="mf">0.20</span><span class="p">)</span>
+<a href="#__codelineno-7-48" id="__codelineno-7-48" name="__codelineno-7-48"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Monte Carlo NPV: $</span><span class="si">{</span><span class="n">mc_result</span><span class="p">[</span><span class="s1">'mean_npv'</span><span class="p">]</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-7-49" id="__codelineno-7-49" name="__codelineno-7-49"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Std Dev: $</span><span class="si">{</span><span class="n">mc_result</span><span class="p">[</span><span class="s1">'std_npv'</span><span class="p">]</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-7-50" id="__codelineno-7-50" name="__codelineno-7-50"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"95% CI: $</span><span class="si">{</span><span class="n">mc_result</span><span class="p">[</span><span class="s1">'confidence_95'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2"> to "</span>
+<a href="#__codelineno-7-51" id="__codelineno-7-51" name="__codelineno-7-51"></a>      <span class="sa">f</span><span class="s2">"$</span><span class="si">{</span><span class="n">mc_result</span><span class="p">[</span><span class="s1">'confidence_95'</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="risk-metrics">📊 Risk Metrics<a class="headerlink" href="#risk-metrics" title="Permanent link">¶</a></h2>
+<h3 id="greeks-calculation">Greeks Calculation<a class="headerlink" href="#greeks-calculation" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">calculate_swap_delta</span><span class="p">(</span>
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>    <span class="n">swap</span><span class="p">:</span> <span class="n">EquitySwap</span><span class="p">,</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>    <span class="n">current_price</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>    <span class="n">projected_prices</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a>    <span class="n">bump_size</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># 1% bump</span>
+<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">    </span><span class="sd">"""</span>
+<a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="sd">    Calculate swap delta (sensitivity to spot price)</span>
+<a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="sd">    """</span>
+<a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a>    <span class="c1"># Base NPV</span>
+<a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a>    <span class="n">base_npv</span> <span class="o">=</span> <span class="n">swap</span><span class="o">.</span><span class="n">calculate_npv</span><span class="p">(</span><span class="n">projected_prices</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">)</span>
+<a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a>
+<a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a>    <span class="c1"># Bump prices</span>
+<a href="#__codelineno-8-14" id="__codelineno-8-14" name="__codelineno-8-14"></a>    <span class="n">bumped_prices</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">bump_size</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">projected_prices</span><span class="p">]</span>
+<a href="#__codelineno-8-15" id="__codelineno-8-15" name="__codelineno-8-15"></a>    <span class="n">bumped_npv</span> <span class="o">=</span> <span class="n">swap</span><span class="o">.</span><span class="n">calculate_npv</span><span class="p">(</span><span class="n">bumped_prices</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">)</span>
+<a href="#__codelineno-8-16" id="__codelineno-8-16" name="__codelineno-8-16"></a>
+<a href="#__codelineno-8-17" id="__codelineno-8-17" name="__codelineno-8-17"></a>    <span class="c1"># Delta</span>
+<a href="#__codelineno-8-18" id="__codelineno-8-18" name="__codelineno-8-18"></a>    <span class="n">delta</span> <span class="o">=</span> <span class="p">(</span><span class="n">bumped_npv</span> <span class="o">-</span> <span class="n">base_npv</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">current_price</span> <span class="o">*</span> <span class="n">bump_size</span><span class="p">)</span>
+<a href="#__codelineno-8-19" id="__codelineno-8-19" name="__codelineno-8-19"></a>
+<a href="#__codelineno-8-20" id="__codelineno-8-20" name="__codelineno-8-20"></a>    <span class="k">return</span> <span class="n">delta</span>
+<a href="#__codelineno-8-21" id="__codelineno-8-21" name="__codelineno-8-21"></a>
+<a href="#__codelineno-8-22" id="__codelineno-8-22" name="__codelineno-8-22"></a><span class="n">delta</span> <span class="o">=</span> <span class="n">calculate_swap_delta</span><span class="p">(</span><span class="n">swap</span><span class="p">,</span> <span class="mf">450.0</span><span class="p">,</span> <span class="n">projected_prices</span><span class="p">)</span>
+<a href="#__codelineno-8-23" id="__codelineno-8-23" name="__codelineno-8-23"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Swap Delta: </span><span class="si">{</span><span class="n">delta</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-8-24" id="__codelineno-8-24" name="__codelineno-8-24"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"For 1% move in underlying: $</span><span class="si">{</span><span class="n">delta</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">4.50</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2"> P&amp;L impact"</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="related-instruments">🔗 Related Instruments<a class="headerlink" href="#related-instruments" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../equity_index_swap/">Equity Index Swap</a> - Swap on equity index</li>
+<li><a href="../../rates/irs/">Interest Rate Swap</a> - Rate swaps comparison</li>
+<li><a href="./">Total Return Swap</a> - General TRS documentation</li>
+</ul>
+<h2 id="references">📚 References<a class="headerlink" href="#references" title="Permanent link">¶</a></h2>
+<ul>
+<li>Hull, J. C. (2018). <em>Options, Futures, and Other Derivatives</em></li>
+<li>ISDA Documentation - Equity Derivatives</li>
+<li><a href="https://www.quantlib.org/">QuantLib Documentation</a></li>
+</ul>
+<h2 id="important-notes">⚠️ Important Notes<a class="headerlink" href="#important-notes" title="Permanent link">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Mark-to-Market Risk</p>
+<p>Equity swaps require daily marking-to-market and may trigger margin calls</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Tax Considerations</p>
+<p>Tax treatment varies by jurisdiction - consult tax advisors</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Counterparty Risk</p>
+<p>Consider credit risk of the counterparty when entering swaps</p>
+</div>
+<hr/>
+<p><strong>Last Updated:</strong> 2025-01-17 | <strong>Version:</strong> 1.0 | <strong>Status:</strong> Production Ready</p>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright © 2025 David Forero
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "toc.follow", "toc.integrate", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "header.autohide"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+<script src="https://unpkg.com/mermaid@10.0.2/dist/mermaid.min.js"></script>
+<script src="../../../assets/javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>
