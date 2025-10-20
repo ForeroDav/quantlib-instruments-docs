@@ -639,40 +639,6 @@ table tbody tr:nth-child(even) {
 }
 
 /* ============================================
-   Stats and Metrics
-   ============================================ */
-.stats-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
-}
-
-.stat-box {
-    background: white;
-    border-radius: 8px;
-    padding: 1.5em;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    border-top: 3px solid var(--ql-primary);
-}
-
-.stat-box .stat-value {
-    font-size: 2.5em;
-    font-weight: 700;
-    color: var(--ql-primary);
-    display: block;
-}
-
-.stat-box .stat-label {
-    font-size: 0.9em;
-    color: var(--ql-secondary);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 0.5em;
-}
-
-/* ============================================
    Feature Badges
    ============================================ */
 .feature-badge {

@@ -2,106 +2,106 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>http://localhost:8000/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/api/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/examples/advanced_valuation/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/examples/advanced_valuation.ipynb/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/examples/basic_pricing/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/guides/installation/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/guides/quickstart/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/guides/models/binomial/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/guides/models/black_scholes/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/guides/models/monte_carlo/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/instruments/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/instruments/cashflow/overview/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/instruments/credit/cds/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/instruments/credit/cds_index/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/instruments/credit/cdx_options/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/instruments/equity/american_option/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/instruments/equity/american_warrant/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/instruments/equity/equity_index_swap/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/instruments/equity/equity_swap/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/instruments/equity/european_option/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/instruments/equity/index_futures/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/instruments/fixed_income/callable_bond/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/instruments/fixed_income/frn/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/instruments/fixed_income/treasury_bond/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/instruments/fx/currency_forward/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>http://localhost:8000/instruments/rates/irs/</loc>
-         <lastmod>2025-10-17</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
 </urlset>
