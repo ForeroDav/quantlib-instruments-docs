@@ -10,18 +10,20 @@ theme:
   # Professional financial theme with improved contrast
   palette:
     # Light mode - Clean professional blue/teal scheme
-    - scheme: default
-      primary: custom
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
       accent: teal
       toggle:
-        icon: material/weather-night
+        icon: material/brightness-7
         name: Switch to dark mode
-    # Dark mode - Sophisticated deep blue with gold accents
-    - scheme: slate
-      primary: custom
+    # Dark mode - High contrast with bright accents
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
       accent: amber
       toggle:
-        icon: material/weather-sunny
+        icon: material/brightness-4
         name: Switch to light mode
 
   # Professional, readable fonts optimized for financial content

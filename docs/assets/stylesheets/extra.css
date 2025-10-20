@@ -35,22 +35,22 @@
   --card-shadow-hover: 0 4px 16px rgba(0,0,0,0.12);
 }
 
-/* Dark Mode - Sophisticated Deep Blue with Gold Accents */
+/* Dark Mode - Professional Dark Theme with High Contrast */
 [data-md-color-scheme="slate"] {
-  --md-primary-fg-color: #1e3a5f;           /* Deep navy blue */
-  --md-primary-fg-color--light: #2c5282;    /* Lighter navy */
-  --md-primary-fg-color--dark: #0f1e33;     /* Very dark navy */
+  --md-primary-fg-color: #3b82f6;           /* Bright blue for visibility */
+  --md-primary-fg-color--light: #60a5fa;    /* Lighter blue for hover */
+  --md-primary-fg-color--dark: #2563eb;     /* Darker blue for contrast */
   --md-accent-fg-color: #fbbf24;            /* Warm gold accent */
 
-  /* Dark mode text colors - improved contrast */
-  --md-typeset-color: #e8eaed;              /* Light gray text */
-  --md-typeset-a-color: #60a5fa;            /* Bright blue for links */
+  /* Dark mode text colors - high contrast */
+  --md-typeset-color: #e6edf3;              /* Very light gray text - high contrast */
+  --md-typeset-a-color: #58a6ff;            /* Bright blue for links */
 
   --md-default-bg-color: #0d1117;           /* Very dark background */
   --md-code-bg-color: #161b22;              /* Slightly lighter for code */
 
-  --heading-primary: #f0f6fc;               /* Almost white for headings */
-  --heading-secondary: #e8eaed;             /* Light gray for subheadings */
+  --heading-primary: #ffffff;               /* Pure white for headings */
+  --heading-secondary: #f0f6fc;             /* Very light for subheadings */
 
   --border-color: #30363d;
   --highlight-bg: #3d2e00;                  /* Dark gold for highlights */
@@ -141,12 +141,21 @@
 /* Inline code */
 .md-typeset code {
   background-color: var(--md-code-bg-color);
-  color: #e83e8c;
   padding: 0.15em 0.4em;
   border-radius: 4px;
   font-size: 0.9em;
   font-family: 'JetBrains Mono', monospace;
   border: 1px solid var(--border-color);
+}
+
+/* Light mode code color */
+[data-md-color-scheme="default"] .md-typeset code {
+  color: #d63384;
+}
+
+/* Dark mode code color */
+[data-md-color-scheme="slate"] .md-typeset code {
+  color: #ff7b72;
 }
 
 /* Code blocks */
