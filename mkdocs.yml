@@ -7,25 +7,27 @@ theme:
   name: material
   language: en
 
-  # Google/Wikipedia inspired clean theme
+  # Professional financial theme with improved contrast
   palette:
+    # Light mode - Clean professional blue/teal scheme
     - scheme: default
-      primary: indigo
-      accent: indigo
+      primary: custom
+      accent: teal
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
+    # Dark mode - Sophisticated deep blue with gold accents
     - scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: custom
+      accent: amber
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
 
-  # Clean, Wikipedia-style font
+  # Professional, readable fonts optimized for financial content
   font:
-    text: Roboto
-    code: Roboto Mono
+    text: Inter
+    code: JetBrains Mono
 
   features:
     - navigation.instant        # Fast page loading (SPA-like)
@@ -55,6 +57,10 @@ nav:
   - Getting Started:
       - Installation: guides/installation.md
       - Quick Start: guides/quickstart.md
+  - Pricing Models:
+      - Black-Scholes: guides/models/black_scholes.md
+      - Binomial Trees: guides/models/binomial.md
+      - Monte Carlo Simulation: guides/models/monte_carlo.md
   - Instruments:
       - Overview: instruments/index.md
       - Equity:

@@ -173,6 +173,8 @@ All instruments share these common properties:
     - Callable Bonds
     - Equity Swaps
 
+<div id="pricing-methods"></div>
+
 === "By Pricing Method"
 
     **Analytical:**

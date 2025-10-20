@@ -1,11 +1,11 @@
 # QuantLib Financial Instruments Documentation
 
-<div style="text-align: center; padding: 2em 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; color: white; margin-bottom: 2em;">
-    <h2 style="color: white; margin: 0;">Professional Pricing & Valuation Platform</h2>
-    <p style="font-size: 1.1em; margin: 1em 0;">Comprehensive documentation for QuantLib-based financial instruments</p>
-    <div style="margin-top: 1.5em;">
-        <a href="guides/quickstart/" style="background: white; color: #667eea; padding: 0.8em 2em; border-radius: 25px; text-decoration: none; font-weight: 600; margin: 0.5em;">Get Started</a>
-        <a href="instruments/" style="background: transparent; border: 2px solid white; color: white; padding: 0.8em 2em; border-radius: 25px; text-decoration: none; font-weight: 600; margin: 0.5em;">Browse Instruments</a>
+<div class="hero-banner">
+    <h2>Professional Pricing & Valuation Platform</h2>
+    <p>Comprehensive documentation for QuantLib-based financial instruments</p>
+    <div class="hero-actions">
+        <a class="hero-button hero-button--primary" href="guides/quickstart/">Get Started</a>
+        <a class="hero-button hero-button--ghost" href="instruments/index.md">Browse Instruments</a>
     </div>
 </div>
 
@@ -243,7 +243,7 @@ Price a European call option in under 20 lines of code:
 
 ### Equity Instruments (8)
 
-<div class="instrument-card">
+<div class="instrument-card" markdown>
 
 #### <span class="category-badge badge-equity">EQUITY</span> Options & Derivatives
 
@@ -262,7 +262,7 @@ Price a European call option in under 20 lines of code:
 
 ### Fixed Income Instruments (3)
 
-<div class="instrument-card">
+<div class="instrument-card" markdown>
 
 #### <span class="category-badge badge-fixed-income">FIXED INCOME</span> Bonds & Notes
 
@@ -276,7 +276,7 @@ Price a European call option in under 20 lines of code:
 
 ### Credit Derivatives (3)
 
-<div class="instrument-card">
+<div class="instrument-card" markdown>
 
 #### <span class="category-badge badge-credit">CREDIT</span> Credit Protection
 
@@ -335,34 +335,34 @@ graph LR
 
 ## 🔬 Pricing Methods Overview
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-    <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 1.5em; border-radius: 8px; color: white;">
-        <h4 style="margin-top: 0; color: white;">Analytical Methods</h4>
-        <ul style="margin: 0;">
+<div class="pricing-panels">
+    <div class="pricing-panel pricing-panel--analytical">
+        <h4>Analytical Methods</h4>
+        <ul>
             <li>Black-Scholes</li>
             <li>Black's Model</li>
             <li>Closed-form Solutions</li>
         </ul>
     </div>
-    <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 1.5em; border-radius: 8px; color: white;">
-        <h4 style="margin-top: 0; color: white;">Tree Methods</h4>
-        <ul style="margin: 0;">
+    <div class="pricing-panel pricing-panel--tree">
+        <h4>Tree Methods</h4>
+        <ul>
             <li>Binomial Trees</li>
             <li>Trinomial Trees</li>
             <li>BDT, Hull-White</li>
         </ul>
     </div>
-    <div style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); padding: 1.5em; border-radius: 8px; color: white;">
-        <h4 style="margin-top: 0; color: white;">Monte Carlo</h4>
-        <ul style="margin: 0;">
+    <div class="pricing-panel pricing-panel--monte-carlo">
+        <h4>Monte Carlo</h4>
+        <ul>
             <li>Path Simulation</li>
             <li>LSM (American)</li>
             <li>Variance Reduction</li>
         </ul>
     </div>
-    <div style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); padding: 1.5em; border-radius: 8px; color: white;">
-        <h4 style="margin-top: 0; color: white;">PDE Methods</h4>
-        <ul style="margin: 0;">
+    <div class="pricing-panel pricing-panel--pde">
+        <h4>PDE Methods</h4>
+        <ul>
             <li>Finite Difference</li>
             <li>Crank-Nicolson</li>
             <li>Explicit/Implicit</li>
@@ -372,9 +372,9 @@ graph LR
 
 ## 📖 What's Next?
 
-<div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: 1.5rem;" markdown>
+<div class="next-steps-grid" markdown>
 
-<div markdown>
+<div class="next-steps-card" markdown>
 ### For Quants & Developers
 
 1. **[Installation Guide](guides/installation.md)** - Set up your environment
@@ -383,20 +383,20 @@ graph LR
 4. **[Interactive Examples](examples/basic_pricing.ipynb)** - Jupyter notebooks
 </div>
 
-<div markdown>
+<div class="next-steps-card" markdown>
 ### For Risk Managers
 
-1. **[Instrument Catalog](instruments/)** - Browse all instruments
-2. **[Pricing Methods](instruments/#pricing-methods)** - Compare approaches
+1. **[Instrument Catalog](instruments/index.md)** - Browse all instruments
+2. **[Pricing Methods](instruments/index.md#pricing-methods)** - Compare approaches
 3. **[Greeks & Risk Metrics](instruments/equity/american_option.md#greeks)** - Sensitivity analysis
-4. **[API Reference](api/)** - Complete technical docs
+4. **[API Reference](api/index.md)** - Complete technical docs
 </div>
 
 </div>
 
 ---
 
-<div style="text-align: center; padding: 2em; background: #f5f7fa; border-radius: 8px; margin-top: 3em;">
-    <p style="font-size: 1.1em; color: #666;">Built with <strong>QuantLib</strong> | Documented with <strong>MkDocs Material</strong></p>
-    <p style="color: #888;">© 2025 David Forero | Production-Ready Financial Instruments Documentation</p>
+<div class="footer-cta">
+    <p>Built with <strong>QuantLib</strong> | Documented with <strong>MkDocs Material</strong></p>
+    <p>© 2025 David Forero | Production-Ready Financial Instruments Documentation</p>
 </div>
